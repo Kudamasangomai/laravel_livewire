@@ -1,28 +1,30 @@
 <div>
- 
-    <form wire:submit.prevent="submit">
-        @if (session()->has('message'))
-        <div class="alert alert-success">
-            {{session('message')}}
-        </div>
-        @endif
 
-        <div class="form-group">
-            <label class="col-sm-2 control-label"> Name</label>
-        <input type="text" class="form-control" wire:model.debounce="name">
-        @error('name') <span class="error"><strong>{{ $message }}</strong></span> @enderror
-        </div>
+    @if (session()->has('message'))
+    <div class="alert alert-success">
+        {{session('message')}}
+    </div>
+    @endif
 
-        
+    @if($updateform)
 
-        <div class="form-group">
-            <label class="col-sm-2 control-label">Email</label>
-        <input type="email" class="form-control" wire:model.debounce="email">
-        @error('email') <span class="error"><strong>{{ $message }}</strong></span> @enderror
-        </div>
-        <button type="submit">Save Contact</button>
 
-    </form>
+    
+    @include('livewire.update')
+   
+   
+       
+    @else
+              @include('livewire.form')
+
+      @endif
+       
+</div>
+ <br/>
+  
+@include('livewire.studentslist')   
+
+    
 </div>
 <style>
     .error

@@ -2,13 +2,12 @@
 
 @section('content')
 
-<h4>test</h4>
+<h4>Students Form</h4>
 
 <hr/>
 
 <livewire:regform />
+
 <br/>
 
-
-<livewire:studentslist />
 @endsection
