@@ -7,8 +7,15 @@
 @include('livewire.detailview')
 
 @else
-    
-
+<div class="row">
+    <div class="col-sm">
+      <div class="form-group">
+<input type="text" class="form-control" wire:model.debounce="search" placeholder="Search Here">
+      </div>
+      <div wire:loading>Searching Student...</div>
+    </div>
+</div>
+<br/>
 
  <table class="table">
         <thead>

@@ -12,6 +12,7 @@ class Regform extends Component
   
     public $studs;
     public $selected_id;
+    public $search;
     public string $name = '';
     public string $email = '';
 
@@ -34,6 +35,7 @@ class Regform extends Component
 
     public function render()
     {
+       
         $this->regform = true ;
         $student = Students::paginate(5);
         return view('livewire.regform',compact('student',$student));
@@ -110,6 +112,21 @@ class Regform extends Component
     {
         $this->updateform = false;
         $this->reset();
+    }
+
+    public function search()
+    {
+   
+
+ 
+        $student = Students::where('name', 'LIKE', '%'.$this->search.'%')->paginate(10);
+
+        $data = [
+            'student' => $student,
+        ];
+
+        return view('livewire.search')->with($data);
+        
     }
 
 
