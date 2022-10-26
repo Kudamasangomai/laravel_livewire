@@ -80,6 +80,7 @@ class Regform extends Component
         $student = Students::find($id);
         $this->name = $student->name;
         $this->email = $student->email;
+        $this->selected_id = $id;
         $this->studentdv  = true;
         $this->updateform = false;
         $this->regform = false;
