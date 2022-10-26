@@ -46,14 +46,14 @@
 
 
 
-      <div class="container">
-  <div class="wrapper">
-  <main class="py-4">
-    @yield('content')
-</main>
-  </div>
+            <div class="container">
+                  <div class="wrapper">
+                        <main class="py-4">
+                             @yield('content')
+                        </main>
+                   </div>
 
-      </div>
+            </div>
       @livewireScripts
 </body>
 </html>

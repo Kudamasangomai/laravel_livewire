@@ -14,8 +14,13 @@
    
    
        
+    @elseif ($studentdv)
+
+    @include('livewire.detailview')
+
     @else
-              @include('livewire.form')
+
+            @include('livewire.form')
 
       @endif
        

@@ -35,7 +35,7 @@ class Regform extends Component
 
     public function render()
     {
-       
+    
         $this->regform = true ;
         $student = Students::paginate(5);
         return view('livewire.regform',compact('student',$student));
@@ -81,6 +81,8 @@ class Regform extends Component
         $this->name = $student->name;
         $this->email = $student->email;
         $this->studentdv  = true;
+        $this->updateform = false;
+        $this->regform = false;
     }
 
     public function update(){
@@ -98,35 +100,14 @@ class Regform extends Component
             ]);
             $this->reset();
             session()->flash('message','Student Succesfully Updated');
-           
-    
+    }    
     }
-
-  
-    
-    }
-
 
 
     public function cancel()
     {
         $this->updateform = false;
         $this->reset();
-    }
-
-    public function search()
-    {
-   
-
- 
-        $student = Students::where('name', 'LIKE', '%'.$this->search.'%')->paginate(10);
-
-        $data = [
-            'student' => $student,
-        ];
-
-        return view('livewire.search')->with($data);
-        
     }
 
 

@@ -26,4 +26,7 @@
       </div>
       <button type="submit" class="btn btn-info">Save Contact</button>
     </form>
-    </div>
+    
+  </div>
+
+    
