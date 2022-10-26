@@ -15,12 +15,13 @@ class Regform extends Component
     public $search;
     public string $name = '';
     public string $email = '';
-
+    public $confirming;
     public $updateform = false;
     public $studentdv = false;
     public $regform = false;
-  
 
+  
+    protected $listeners = ['dontdelete' => '$refresh'];
 
     public function mount()
     {
@@ -59,12 +60,22 @@ class Regform extends Component
     }
 
 
-    public function delete($id)
+   public function confirmDelete($id)
     {
-        $student = Students::where('id', $id);
-        $student->delete();
+        $this->confirming = $id;
+    }
+
+    public function dontdelete()
+    {
+        $this->emit('dontdelete');
+        return redirect('/') ;
+      
+    }
+
+    public function kill($id)
+    {
+        Students::destroy($id);
         session()->flash('message','Student Succesfully Deleted');
-        $this->studentlist(); 
     }
 
     public function edit($id){

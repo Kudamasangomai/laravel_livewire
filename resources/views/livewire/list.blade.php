@@ -19,11 +19,21 @@
                     <td>{{$row->created_at}}</td>  
                     <td>{{$row->updated_at}}</td>
                     <td>
-                      <button wire:click="studentview({{$row->id}})" class="btn btn-primary" >View</button> 
-
-                      <button wire:click="edit({{$row->id}})" class="btn btn-warning">Edit</button> 
+                    
                          
-                        <button class="btn btn-info" wire:click="delete({{ $row->id }})"  onclick="return confirm('Are you sure?')">Delete</button>   
+
+                        @if($confirming===$row->id)
+                    <button wire:click="kill({{ $row->id }})"
+                        class="btn btn-danger">Yes Delete?</button>
+
+                        <button  wire:click="dontdelete()"  class="btn btn-success">Dont Delete</button>
+                         @else
+                         <button wire:click="studentview({{$row->id}})" class="btn btn-primary" >View</button> 
+
+                 <button wire:click="edit({{$row->id}})" class="btn btn-warning">Edit</button> 
+                    <button wire:click="confirmDelete({{ $row->id }})"
+                        class="btn btn-info">Delete</button>
+                @endif
                     </td> 
                 </tr>
                 
