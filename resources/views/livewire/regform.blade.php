@@ -8,8 +8,7 @@
 
     @if($updateform)
 
-
-    
+   
     @include('livewire.update')
    
    
