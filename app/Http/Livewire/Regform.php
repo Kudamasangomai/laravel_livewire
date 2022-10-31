@@ -38,8 +38,13 @@ class Regform extends Component
     {
     
         $this->regform = true ;
-        $student = Students::paginate(5);
-        return view('livewire.regform',compact('student',$student));
+        // $student = Students::paginate(5);
+        // return view('livewire.regform',compact('student',$student));
+
+
+        return view('livewire.regform', [
+           'student' => Students::paginate(5),
+        ]);
        
     }
 
